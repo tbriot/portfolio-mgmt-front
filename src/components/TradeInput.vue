@@ -10,6 +10,8 @@
 </template>
 
 <script>
+const uuidv1 = require('uuid/v1');
+
 export default {
   data() {
     return {
@@ -30,8 +32,8 @@ export default {
     onSubmit(evt) {
       //evt.preventDefault()
       this.$emit('createTradeEvent',  {
-        id: 0,
-        tradedOn: "1st jan 2000",
+        id: uuidv1(),
+        tradedOn: new Date(),
         type: this.form.tradeType,
         security: this.form.security
       })
